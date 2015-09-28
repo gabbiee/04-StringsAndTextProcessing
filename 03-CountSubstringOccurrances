@@ -1,0 +1,15 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class countSubstringOccurrances
+{
+    static void Main()
+    {
+        string inputText = Console.ReadLine().ToLower();
+        string search = Console.ReadLine().ToLower();
+        int count = inputText.Select((c, i) => inputText.Substring(i)).Count(sub => sub.StartsWith(search));
+        Console.WriteLine(count);
+    }
+}
+
