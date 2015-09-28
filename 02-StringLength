@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class stringLength
+{
+    static void Main()
+    {
+        string input = Console.ReadLine();
+        string output = string.Empty;
+
+        if (input.Length==20)
+        {
+            Console.WriteLine(input);
+        }
+        else if (input.Length>20)
+        {
+            char[] inputArr = input.ToCharArray();
+            
+            for (int i = 0; i < inputArr[19]; i++)
+            {
+                output += input[i];
+            }
+            Console.WriteLine(output);
+        }
+
+        else
+        {
+            int stringLength = input.Length;
+            int difference = 20 - stringLength;
+            Console.WriteLine(input+new string('*',difference));
+        }
+    }
+}
+
