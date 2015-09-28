@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class lettersChangeNumbers
+{
+    static void Main()
+    {
+        string[] input = Console.ReadLine().Split(new char[] {' '},StringSplitOptions.RemoveEmptyEntries);
+        double totalSum = 0;
+        foreach (string item in input)
+        {
+            char firstLetter = item.First();
+            char lastLetter = item.Last();
+
+
+
+            double num = Convert.ToDouble(item.Substring(1, item.Length - 2));
+            num = CheckFirstLetter(firstLetter,num);
+            num = CheckLastLetter(lastLetter, num);
+           
+            totalSum +=num;     
+        }
+        Console.WriteLine("{0:f2}",totalSum);
+    }
+
+    static double CheckFirstLetter(char firstLetter,double num)
+    {
+       
+        if (char.IsUpper(firstLetter))
+        {
+            return num / (firstLetter - 64);
+        }
+        else
+        {
+            return num * (firstLetter - 96);
+        }
+      
+    }
+
+    static double CheckLastLetter(char lastLetter, double num)
+    {
+       
+        if (char.IsUpper(lastLetter))
+        {
+            return num - (lastLetter - 64);
+        }
+        else
+        {
+            return num + (lastLetter - 96);
+        }
+        
+    }
+}
+
